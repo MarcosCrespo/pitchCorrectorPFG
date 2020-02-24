@@ -44,13 +44,13 @@ classdef main < matlab.System
             % debug ==> Array con informaci�n relevante
             % obj ==> distintas variables de estado
 
-            tau = FundamentalFrecuencyFinder(in,obj.N);
+           [a, tau] = FundamentalFrecuencyFinder(in,obj.N);
 
-            frecuency = (1/tau)*obj.Fs;
+            frecuency = (1/tau)*obj.Fs/2;
 
 
             out = in;
-            debug=frecuency;
+            debug=[frecuency,a];
 
         end
 

@@ -1,21 +1,27 @@
-function [tau] = FundamentalFrecuencyFinder(in,N)
+function [a,tau] = FundamentalFrecuencyFinder(in,N)
 
 R = zeros(N,1);
 
 for t = 1:N
     
     q = 0;
-    p = 0;
-    
+
     for n = 1:N
-        q = q + (in(n)*in(n + t));
-        p = p + in(n + t)^2;
+        q = q + ((in(n) - in(n + t)))^2;
+
     end
     
-    R(t) = q / sqrt(p);
+    q = q/N;
+    
+    if q > 0.01
+       R(t) = q;
+    else 
+       R(t) = 10;
+    end 
+    
     
 end
 
-[~,tau] = max(R(:));
+[a,tau] = min(R(:));
 
 end
