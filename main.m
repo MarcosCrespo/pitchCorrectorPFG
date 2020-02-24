@@ -46,7 +46,7 @@ classdef main < matlab.System
             % ouR ==> variable para almacenar el frame de salida del canal R
             % obj ==> distintas variables de estado
 
-            debug = in;
+            debug = 53;
             out=in;   
                         
         end
