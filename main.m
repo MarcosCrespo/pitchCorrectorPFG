@@ -31,24 +31,23 @@ classdef main < matlab.System
             
     methods(Access = protected)
         % Se ejecuta una sola vez, al inicio.
-        function setupImpl(obj,inR,inL)
+        function setupImpl(obj,in)
             % Se utiliza para inicializar variables de estado.
             % inR ==> variable para almacenar el frame de entrada del canal R
             % inL ==> variable para almacenar el frame de entrada del canal L
             % obj ==> distintas variables de estado
             
-            obj.N=length(inR);        % Variable del tamano del frame
+            obj.N=length(in);        % Variable del tamano del frame
         end
  
         %Lazo principal de ejecuci?n (frame a frame)
-        function [outL, outR] = stepImpl(obj,inL,inR)
+        function [out, debug] = stepImpl(obj,in)
             % ouL ==> variable para almacenar el frame de salida del canal L
             % ouR ==> variable para almacenar el frame de salida del canal R
             % obj ==> distintas variables de estado
 
-            
-            outL=inL;   % Bypass canal L
-            outR=inR;   % Bypass canal R
+            debug = 53;
+            out=in;   
                         
         end
         
