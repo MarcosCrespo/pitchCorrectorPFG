@@ -46,11 +46,11 @@ classdef main < matlab.System
 
            [a, tau] = FundamentalFrecuencyFinder(in,obj.N);
 
-            frecuency = obj.Fs/tau;
+            frecuency = 1/(tau*obj.Fs;
 
 
             out = in;
-            debug=[frecuency,tau,a];
+            debug=[frecuency,a];
 
         end
 

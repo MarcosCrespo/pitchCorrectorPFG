@@ -1,0 +1,22 @@
+function [a,tau] = FundamentalFrecuencyFinder(in,N)
+
+R = zeros(N,1);
+
+for t = 1:N
+    
+
+   q = symsum((in(n)*in(n-t)),n,1,N-1);
+
+    if q < 0.1
+       R(t) = q;
+    else
+        R(t) = -10;
+    end
+
+    
+    
+end
+
+[a,tau] = max(R(:));
+
+end
