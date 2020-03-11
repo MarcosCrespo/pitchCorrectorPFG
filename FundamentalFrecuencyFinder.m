@@ -13,8 +13,6 @@ for t = 1:N
     
     R(t) = q;
 
-   
-    
     
 end
 
