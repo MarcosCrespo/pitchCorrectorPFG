@@ -1,0 +1,4 @@
+#Archivos que no deben subirse al repositorio
+/*ert_rtw
+/slprj
+*.elf
