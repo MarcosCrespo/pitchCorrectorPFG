@@ -6,12 +6,13 @@ classdef main < matlab.System
  
     % Public, non-tunable properties
     properties(Nontunable)
-      Fs=16000;       % Frec. de muestreo (Hz)
+      Fs = 16000;       % Frec. de muestreo (Hz)
     end
     
     % Public, tunable properties
     properties
-      
+      key = "C";
+      tonalidad = "M";
     end
     
     %Variables de estado
@@ -22,6 +23,7 @@ classdef main < matlab.System
     % Variables de estado OCULTAS, NO MODIFICABLES durante la ejecucion.
     properties(Access = private, Nontunable)
       N;              % Tamano del frame de muestras de audio (canales L y R)
+      escala;
     end    
  
     % Pre-computed constants
@@ -37,7 +39,8 @@ classdef main < matlab.System
             % inL ==> variable para almacenar el frame de entrada del canal L
             % obj ==> distintas variables de estado
             
-            obj.N=length(inR);        % Variable del tamano del frame
+            obj.N = length(inR);        % Variable del tamano del frame
+            obj.escala = calculoEscala(obj.key,obj.tonalidad);
         end
  
         %Lazo principal de ejecuci?n (frame a frame)
